@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Mtandao</string>
+    <string name="mundoro_clicic">MUNDORO CLICIC</string>
+    <string name="welcome">Welcome</string>
+    <string name="email">Email</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="create_an_account">Create An Account</string>
+    <string name="login">Login</string>
 </resources>
