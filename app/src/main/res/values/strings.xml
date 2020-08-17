@@ -10,4 +10,7 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="mundoro_clinic" />
     <string name="mundoro_medical">Mundoro medical</string>
+    <string name="search">Search</string>
+    <string name="add_post">add_post</string>
+    <string name="logout">logout</string>
 </resources>
