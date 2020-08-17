@@ -46,16 +46,24 @@ public class RegristrationActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
         if (view.equals(existingAccountBtn)){
-            gotoLoginActivity();
+            goToLoginActivity();
         }
 
         if (view.equals(registerBtn)){
             if (validated()){
                 String email = emailEdit.getText().toString();
                 String password = passwordEdit.getText().toString();
+
+                accountsAPI.registerUser(email,password);
+                loader.showDialogue();
             }
         }
 
+    }
+
+    private void goToLoginActivity() {
+        startActivity(new Intent(new Intent(RegristrationActivity.this, LoginActivity.class)));
+        finish();
     }
 
     private boolean validated() {
@@ -63,7 +71,7 @@ public class RegristrationActivity extends AppCompatActivity implements View.OnC
             Toast.makeText(this, "Email is required", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if (Patterns.EMAIL_ADDRESS.matcher(emailEdit.getText().toString()).matches()){
+        else if (!Patterns.EMAIL_ADDRESS.matcher(emailEdit.getText().toString()).matches()){
             Toast.makeText(this, "Invalid email pattern", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -73,10 +81,6 @@ public class RegristrationActivity extends AppCompatActivity implements View.OnC
         }else return true;
     }
 
-    private void gotoLoginActivity() {
-        startActivity(new Intent(new Intent(RegristrationActivity.this, LoginActivity.class)));
-        finish();
-    }
 
     @Override
     public void onAccountCreated() {
